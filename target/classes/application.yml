@@ -1,0 +1,73 @@
+server:
+  port: 9231
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://localhost:3306/cinema_manager?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123123
+      initialSize: 0
+      minIdle: 10
+      maxActive: 20
+      maxWait: 60000
+      connectTimeout: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      maxEvictableIdleTimeMillis: 900000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+
+  devtools:
+    restart:
+      enabled: true
+  freemarker:
+    cache: false
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+mybatis:
+  type-aliases-package: com.rabbiter.cm.**.domain
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.rabbiter: trace
+    org.springframework: warn
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+alipay:
+  gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+  appId: 9021000158699766
+  merchantPrivateKey: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDdgxzOfiDgHwV5Aje9bqAHWWIEM5DJBzRjTDWRiGtV24d8Mi6vTgQXvo+eUsLp3d60ABGh4eF5CUJ1P+9fxUldAIamDX/pRVXpruJvi+1Um91ErI0JSfpra9oz9GPc+h+g7gUhv+7xM2/nPQ/q5Kb4qDpLP0GO/OrI4Eni4wyq8aTXV/5tDyLV54mP4V77FT67TsWVGmExNsLEStMM2iYto6492XcfxQrjja0QX4vKCoEdqhCkeChROk0tr7/1y2KwWBMb1TL1uU0Z18g4OwLmRGRcX6JEWUFh7Xusf+TCb/HK2DX03lbUlVS9KVazvq5sTRRC0zIA5dgoIMsxsrl/AgMBAAECggEBALU2g6RyDpcLCcEbDVqNW6FngAYL4VBz8mmheNlcDuMoOshhjUuguTxrirZs4kPMXFpJDCOw1HHeH14oNb3VedT5jy3dMV02ebg4d8nlYPysnfGGb8K/oHusuc9zCRdIEAPpdI1NpT3xZIR5scHp2KbniPjyAMHnKnO2+PsB3+UfT/IwEQZDkz3YVYPwpM/j7eHjbO5nBW+UFP1R8hgxvCB4CLGkKmvKylj3WpkGl/BLLHgbZf2K5BBwrUxA/WabOx9vQY5NYOzFK0D7MwbZWhLSf0BX3aqIWhAM5DW/qRxdCB89UYsloudaKAtf1dokzjJu9zVJQH15a/4PTp6kWtECgYEA/QEx7aNvIbCheebpfSN5GAtrD7Oyy8UfiIb/TQ6mXzKzXe2VkdMsda3JfBQO1hQkF92ub5MInmEypwcimhDrIJpsPEzK4ZqJgClOg7+3iASEhaFIM0a8jI9iwlQm2KkggNSRcge8wCZ4lY53IK8z/VcF1KdCrvUlC6EVTTcjO+sCgYEA4CJ4XnkjDGXhNZmQVKpyGFqQ2lyARUJBb0WjFAkDbOWCIf1BNkCpoOP5Z5RmGLy2l4gLwhsRMuKlq353Bd260w6fmUgnvoc16YpVKf00mrDylC53WeS00Qyvi+xoXtjn+h05E6oYjeYxYIvzMO/37fxH9PTENxzH3khwqxxwN70CgYAFqNMvF6rSvBrAmVO7wuFgklDQxxpGyKAN88ceOCeslXvBrCDeZDToZPzO07wJOeYcyo6uXEGjGVWCuvwhKiO4VPv61VTsewJ8ZXAmLlGyrzcvrg3pZ7msA0EYS72atx3NA/RE8rtcKQAliExN5N1q21l8CknJlB5CBlZtpcAaBQKBgHWZYHKhOIR+yAVph1MFA0xH6IzJz/uG4fJSJViTyhpO6VKQILEoiFgEhY2VTWRZT6x+Ez1LGmEKjkZG2ohXaHjoyVCRjVjodJ8Ol9SqJ/mqMf0RzEl8OGsfLtRJvBFX2Y9f2dy5eJyrVOkFRRo+LmXN4qth6bnI/g1hEMyW5UI5AoGAWeBNEOhf9LYH10NC8rv00ltrxf4I8n57CI/y0LVPPoN8rml50alazM0tkigG4IoOXm3MuMlUu301yK/izCVK7Ax8LTZNzZLXnNJUZdO4ESzzOzWGjkFbJ/GtRVUsXYwHUjq2mBnv1BilkBV7CdJbXoHkh1XqcQPzMvUO+tJPJM4=  # 商户私钥
+
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAooGlJ2yDcfCBjIK15yuXi7TuJKgbHNz51+CrO5SzrL3abiazNl2iCSqkzQ9TMbRQvDeI3kOoX2zSWYmWiaXDmBU4LfQrDeQHCITCM/vjvu6PMtaL/PKlzOUOLFTj/ctrNTfjKmutbGejBl+FPbaRRkYXKMmrcnI+uMmfxJ2ch58Bf3iSxpLxsfde3n5D+KgS4UpzE5Q29JrlhfimNOpEQJ5VZZ+eusNh9eqTHrxiyDj8Mj+N/Ob2dDkEO6IBFWlFF7Y6euKAwPDwtJa1WsuM0/LFgs+f45bG3NjNlPnukStab1kl98PNeIaWZpgB9o//NIce/wdhuc5nlEPHnmEvtwIDAQAB  # 支付宝公钥
+
+  charset: utf-8
+  signType: RSA2
+  returnUrl: https://http://172.17.3.183:9232//pay/return
+  notifyUrl: http://n49c5b3d.natappfree.cc/api/alipay/notify
+
+
